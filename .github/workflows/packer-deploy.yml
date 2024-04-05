@@ -1,7 +1,7 @@
 name: packer deployment
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -28,7 +28,7 @@ jobs:
       uses: hashicorp/setup-packer@main
       id: setup
       with:
-          version: ${{ env.PRODUCT_VERSION }}
+          version: "1.10.2"
     
     - name: Set up MySQL server
       run: |
